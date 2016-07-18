@@ -1,0 +1,63 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="common runner for negative tests">
+
+    <test name="Test div">
+        <groups>
+            <run>
+                <include name="negative" />
+            </run>
+        </groups>
+
+        <classes>
+            <class name="CalculateDivTest"></class>
+        </classes>
+    </test>
+
+    <test name="Test mult">
+        <groups>
+            <run>
+                <include name="negative" />
+            </run>
+        </groups>
+
+        <classes>
+            <class name="CalculateMultTest"></class>
+        </classes>
+    </test>
+
+    <test name="Test sqrt">
+        <groups>
+            <run>
+                <include name="negative" />
+            </run>
+        </groups>
+
+        <classes>
+            <class name="CalculateSquareTest"></class>
+        </classes>
+    </test>
+
+    <test name="Test sub">
+        <groups>
+            <run>
+                <include name="negative" />
+            </run>
+        </groups>
+
+        <classes>
+            <class name="CalculateSubTest"></class>
+        </classes>
+    </test>
+
+    <test name="Test sum">
+        <groups>
+            <run>
+                <include name="negative" />
+            </run>
+        </groups>
+
+        <classes>
+            <class name="CalculateSumTest"></class>
+        </classes>
+    </test>
+</suite>

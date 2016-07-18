@@ -1,0 +1,43 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="common runner for all tests">
+
+    <listeners>
+        <listener class-name="listener.testListener"></listener>
+    </listeners>
+
+    <test name="Test div">
+        <classes>
+            <class name="CalculateDivTest"></class>
+        </classes>
+    </test>
+
+    <test name="Test mult">
+        <classes>
+            <class name="CalculateMultTest"></class>
+        </classes>
+    </test>
+
+    <test name="Test sqrt">
+        <classes>
+            <class name="CalculateSquareTest"></class>
+        </classes>
+    </test>
+
+    <test name="Test sub">
+        <classes>
+            <class name="CalculateSubTest"></class>
+        </classes>
+    </test>
+
+    <test name="Test sum">
+        <classes>
+            <class name="CalculateSumTest"></class>
+        </classes>
+    </test>
+
+    <test name="Test except">
+        <classes>
+            <class name="TestExceptions"></class>
+        </classes>
+    </test>
+</suite>

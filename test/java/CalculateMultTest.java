@@ -2,6 +2,8 @@ import listener.testListener;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.Date;
+
 /**
  * Created by Yahor_Kavaliou on 7/13/2016.
  */
@@ -12,16 +14,18 @@ public class CalculateMultTest extends BaseTest {
     @Test (dataProvider = "positiveMult", groups = "positive")
     public void positiveMultTest(long a, long b, long res){
         long result = calculator.mult(a, b);
+        try {
+            System.out.println(new Date().toString());
+            Thread.sleep(1000);
+        } catch (InterruptedException e) { }
         Assert.assertEquals(result, res, "positiveMultTest failed");
-        System.out.println("positiveMultTest passed for: " + "{" + a + "}" + "{" + b + "}" + "{" + res + "}");
     }
 
     @Test (dataProvider = "negativeMult", groups = "negative")
     public void negativeMultTest(long a, long b, long res){
         long result = calculator.mult(a, b);
         Assert.assertNotSame(result, res, "negativeMultTest failed");
-        System.out.println("negativeMultTest passed for: " + "{" + a + "}" + "{" + b + "}" + "{" + res + "}");
-    }
+     }
 
     @DataProvider(name = "positiveMult")
     public Object[][] getValues(){
@@ -43,11 +47,11 @@ public class CalculateMultTest extends BaseTest {
 
     @BeforeTest
     public void setUp(){
-        System.out.printf("\n@BeforeTest CalculateMultTest class method runs\n");
+
     }
 
     @AfterTest
     public void tearDown(){
-        System.out.printf("\n@AfterTest CalculateMultTest class method runs\n");
+
     }
 }

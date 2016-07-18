@@ -2,6 +2,8 @@ import listener.testListener;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.Date;
+
 /**
  * Created by Yahor_Kavaliou on 7/13/2016.
  */
@@ -12,15 +14,17 @@ public class CalculateSubTest extends BaseTest {
     @Test (dataProvider = "positiveSub", groups = "positive")
     public void positiveSubTest(long a, long b, long res){
         long result = calculator.sub(a, b);
+        try {
+            System.out.println(new Date().toString());
+            Thread.sleep(1000);
+        } catch (InterruptedException e) { }
         Assert.assertEquals(result, res, "positiveSubTest failed");
-        System.out.println("positiveSubTest passed for: " + "{" + a + "}" + "{" + b + "}" + "{" + res + "}");
     }
 
     @Test (dataProvider = "negativeSub", groups = "negative")
     public void negativeSubTest(long a, long b, long res){
         long result = calculator.sub(a, b);
         Assert.assertNotSame(result, res, "negativeSubTest failed");
-        System.out.println("negativeSubTest passed for: " + "{" + a + "}" + "{" + b + "}" + "{" + res + "}");
     }
 
     @DataProvider(name = "positiveSub")
@@ -43,11 +47,11 @@ public class CalculateSubTest extends BaseTest {
 
     @BeforeTest
     public void setUp(){
-        System.out.printf("\n@BeforeTest CalculateSubTest class method runs\n");
+
     }
 
     @AfterTest
     public void tearDown(){
-        System.out.printf("\n@AfterTest CalculateSubTest class method runs\n");
+
     }
 }

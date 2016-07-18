@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="common runner for positive tests">
+<suite name="common runner for positive tests" parallel="methods" thread-count="5">
 
-    <test name="Test div">
+    <test name="Test div" group-by-instances="true">
         <groups>
             <run>
                 <include name="positive" />
@@ -10,10 +10,14 @@
 
         <classes>
             <class name="CalculateDivTest"></class>
+            <class name="CalculateMultTest"></class>
+            <class name="CalculateSquareTest"></class>
+            <class name="CalculateSubTest"></class>
+            <class name="CalculateSumTest"></class>
         </classes>
     </test>
 
-    <test name="Test mult">
+    <!--<test name="Test mult" group-by-instances="true">
         <groups>
             <run>
                 <include name="positive" />
@@ -25,7 +29,7 @@
         </classes>
     </test>
 
-    <test name="Test sqrt">
+    <test name="Test sqrt" group-by-instances="true">
         <groups>
             <run>
                 <include name="positive" />
@@ -37,7 +41,7 @@
         </classes>
     </test>
 
-    <test name="Test sub">
+    <test name="Test sub" group-by-instances="true">
         <groups>
             <run>
                 <include name="positive" />
@@ -49,7 +53,7 @@
         </classes>
     </test>
 
-    <test name="Test sum">
+    <test name="Test sum" group-by-instances="true">
         <groups>
             <run>
                 <include name="positive" />
@@ -59,5 +63,5 @@
         <classes>
             <class name="CalculateSumTest"></class>
         </classes>
-    </test>
+    </test>-->
 </suite>

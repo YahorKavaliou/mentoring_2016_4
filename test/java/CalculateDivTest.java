@@ -2,6 +2,8 @@ import listener.testListener;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.Date;
+
 /**
  * Created by Yahor_Kavaliou on 7/13/2016.
  */
@@ -12,15 +14,17 @@ public class CalculateDivTest extends BaseTest {
     @Test (dataProvider = "positiveDiv", groups = "positive")
     public void positiveDivTest(long a, long b, long res){
         long result = calculator.div(a, b);
+        try {
+            System.out.println(new Date().toString());
+            Thread.sleep(1000);
+        } catch (InterruptedException e) { }
         Assert.assertEquals(result, res, "positiveDivTest failed");
-        System.out.println("positiveDivTest passed for: " + "{" + a + "}" + "{" + b + "}" + "{" + res + "}");
     }
 
     @Test (dataProvider = "negativeDiv", groups = "negative")
     public void negativeDivTest(long a, long b, long res){
         long result = calculator.div(a, b);
         Assert.assertNotSame(result, res, "negativeDivTest failed");
-        System.out.println("negativeDivTest passed for: " + "{" + a + "}" + "{" + b + "}" + "{" + res + "}");
     }
 
     @DataProvider (name = "positiveDiv")

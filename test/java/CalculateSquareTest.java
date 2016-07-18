@@ -2,6 +2,8 @@ import listener.testListener;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.Date;
+
 /**
  * Created by Yahor_Kavaliou on 7/13/2016.
  */
@@ -12,15 +14,17 @@ public class CalculateSquareTest extends BaseTest {
     @Test(dataProvider = "positiveSqr", groups = "positive")
     public void positiveSqrTest(double a,  double res){
         double result = calculator.sqrt(a);
+        try {
+            System.out.println(new Date().toString());
+            Thread.sleep(1000);
+        } catch (InterruptedException e) { }
         Assert.assertEquals(result, res, "positiveSqrTest failed");
-        System.out.println("positiveSqrTest passed for: " + "{" + a + "}" + "{" + res + "}");
     }
 
     @Test (dataProvider = "negativeSqr", groups = "negative")
     public void negativeSqrTest(double a, double res){
         double result = calculator.sqrt(a);
         Assert.assertNotSame(result, res, "negativeSqrTest failed");
-        System.out.println("negativeSqrTest passed for: " + "{" + a + "}" + "{" + res + "}");
     }
 
     @DataProvider(name = "positiveSqr")
@@ -43,11 +47,11 @@ public class CalculateSquareTest extends BaseTest {
 
     @BeforeTest
     public void setUp(){
-        System.out.printf("\n@BeforeTest CalculateSquareTest class method runs\n");
+
     }
 
     @AfterTest
     public void tearDown(){
-        System.out.printf("\n@AfterTest CalculateSquareTest class method runs\n");
+
     }
 }
